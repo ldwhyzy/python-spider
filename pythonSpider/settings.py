@@ -16,7 +16,7 @@ BOT_NAME = 'pythonSpider'
 SPIDER_MODULES = ['pythonSpider.spiders']
 NEWSPIDER_MODULE = 'pythonSpider.spiders'
 
-#LOG_LEVEL = 'WARNING'
+LOG_LEVEL = 'WARNING'
 LOG_FILE = 'myspider.log'
 
 #persist scrapy
@@ -101,10 +101,10 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    #'pythonSpider.pipelines.NyahentaiSpiderPipeline': 300,
+    'pythonSpider.pipelines.NyahentaiSpiderPipeline': 300,
     #'pythonSpider.pipelines.JdSpiderPipeline': 300,
-    'pythonSpider.pipelines.DangdangSpiderPipeline': 300,
-     #'scrapy_redis.pipelines.RedisPipeline': 400, #item persist
+    #'pythonSpider.pipelines.DangdangSpiderPipeline': 300,
+    'scrapy_redis.pipelines.RedisPipeline': 400, #item persist
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

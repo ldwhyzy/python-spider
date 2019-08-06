@@ -9,18 +9,18 @@ from pythonSpider.items import nyahentaiItem
 
 class NyahentaiSpider(scrapy.Spider):
     name = 'nyahentai'
-    allowed_domains = ['ja.nyahentai.com']
-    side_url_code1 = '121750'
-    #start_urls = ['http://ja.nyahentai.com/']
-    start_urls = ['http://ja.nyahentai.com/g/'+side_url_code1+'/']
+    #allowed_domains = ['ja.nyahentai.com']
+    allowed_domains = ['zh.nyahentai.org']
+    side_url_code1 = '210071'
+    #start_urls = ['http://ja.nyahentai.com/g/'+side_url_code1+'/']
+    start_urls = ['http://zh.nyahentai.org/g/'+side_url_code1+'/']
     
     def parse(self, response):
         item = nyahentaiItem()
         
-        pageCountInfo = response.xpath('//div[@id="info"]/div[1]/text()').extract_first()
-        #print(pageCountInfo)
-        #print(response.xpath('//div[@id="info"]/div'))        
-        pageCount = pageCountInfo.split(' ')[-1] #str
+        pageCountInfo = response.xpath('//div[@id="info"]/div[1]/text()').extract_first()        
+        #pageCount = pageCountInfo.split(' ')[-1] #str 'ja.nyahentai.com'
+        pageCount = pageCountInfo.split(' ')[1] #str 'zh.nyahentai.org'
         name = re.sub(r'[,.:]', ' ', response.xpath('//*[@id="info"]/h1/text()').extract_first()) + '[' + pageCount + 'P]'
         
         item['pageCount'] = pageCount
@@ -28,7 +28,7 @@ class NyahentaiSpider(scrapy.Spider):
         
         pageOneRelativeUrl = response.xpath('//*[@id="thumbnail-container"]/div[1]/a/@href').extract_first()
         pageOneUrl = response.urljoin(pageOneRelativeUrl)        
-        yield scrapy.Request(pageOneUrl, callback=self.parse_pic_url, meta={'item': item}, dont_filter=False)
+        yield scrapy.Request(pageOneUrl, callback=self.parse_pic_url, meta={'item': item}, dont_filter=True)
         
     def parse_pic_url(self, response):
         picSrc = response.xpath('//*[@id="image-container"]/img/@src').extract_first()

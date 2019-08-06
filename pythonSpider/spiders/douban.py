@@ -34,7 +34,7 @@ class DoubanSpider(scrapy.Spider):
         wanted = response.xpath('//li[@class="aob"]/a/@title').extract()
         with open('a.html', 'w', encoding='utf-8') as f:
             f.write(response.body.decode())
-        print(re.findall(r"Ïë¶Á", response.body.decode()))    
+        print(re.findall(r"å°†çœ‹", response.body.decode()))    
         for i in wanted:
             print(i)
             

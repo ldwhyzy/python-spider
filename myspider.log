@@ -1,0 +1,4 @@
+2019-08-06 12:13:52 [scrapy.pipelines.files] WARNING: File (code: 404): Error downloading file from <GET https://search.pstatic.net/common?src=https://i.nyahentai.net/galleries/1071757/531.jpg> referred in <None>
+2019-08-06 12:13:52 [scrapy.pipelines.files] WARNING: File (code: 404): Error downloading file from <GET https://search.pstatic.net/common?src=https://i.nyahentai.net/galleries/1071757/536.jpg> referred in <None>
+2019-08-06 12:13:52 [scrapy.pipelines.files] WARNING: File (code: 404): Error downloading file from <GET https://search.pstatic.net/common?src=https://i.nyahentai.net/galleries/1071757/533.jpg> referred in <None>
+2019-08-06 12:13:53 [scrapy.pipelines.files] WARNING: File (code: 404): Error downloading file from <GET https://search.pstatic.net/common?src=https://i.nyahentai.net/galleries/1071757/534.jpg> referred in <None>
