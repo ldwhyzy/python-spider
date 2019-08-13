@@ -11,7 +11,7 @@ class NyahentaiSpider(scrapy.Spider):
     name = 'nyahentai'
     #allowed_domains = ['ja.nyahentai.com']
     allowed_domains = ['zh.nyahentai.org']
-    side_url_code1 = '210071'
+    side_url_code1 = '3733'
     #start_urls = ['http://ja.nyahentai.com/g/'+side_url_code1+'/']
     start_urls = ['http://zh.nyahentai.org/g/'+side_url_code1+'/']
     

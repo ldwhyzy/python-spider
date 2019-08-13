@@ -8,6 +8,8 @@ import scrapy
 from scrapy.pipelines.images import ImagesPipeline
 from scrapy.exceptions import DropItem
 
+from pythonSpider.tools import util
+
 # class PythonspiderPipeline(object):
     # def process_item(self, item, spider):
         # #print('pipleline******************')
@@ -21,7 +23,8 @@ class NyahentaiSpiderPipeline(ImagesPipeline):
             
     def file_path(self, request, response=None, info=None):
         item= request.meta['item']
-        fullName = item['name']+'/'+request.url.split('/')[-1]
+        name = util.pathValidate(item['name'])
+        fullName = name+'/'+request.url.split('/')[-1]
         return fullName        
 
     # def item_completed(self, results, item, info):
